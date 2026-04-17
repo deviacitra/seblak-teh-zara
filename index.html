@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seblak Teh Zara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+  <div class="container nav-inner">
+
+    <!-- Brand -->
+    <div class="brand">
+      <img src="images/image.png" class="brand-logo">
+
+      <div class="brand-text">
+        <p class="brand-label">Seblak Teh Zara</p>
+        <span class="brand-tag">Kademangan</span>
+      </div>
+    </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#testimonials">Testimoni</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-secondary" id="loginToggle">Login</button>
+        <button class="btn btn-ghost hidden" id="logoutBtn">Logout</button>
+      </div>
+      <div class="login-popup hidden" id="loginPopup">
+        <form id="loginForm" class="login-form">
+          <h3>Admin Login</h3>
+          <div class="field-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="admin" required />
+          </div>
+          <div class="field-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required />
+          </div>
+          <p class="login-error" id="loginError"></p>
+          <button class="btn btn-primary btn-block" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Seblak Teh Zara</span>
+          <h1>Pedasnya Juara, Rasanya Luar Biasa 🔥🔥</h1>
+          <p>Selamat datang di Seblak Teh Zara, tempat seblak pedas premium yang diracik dengan bumbu khas, kaldu berkualitas, dan sensasi panas menggoda.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">Lihat Menu</a>
+            <a class="btn btn-secondary" href="#contact">Kontak Kami</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="images/SEBLAK.jpg" alt="Seblak Teh Zara" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container section-head">
+        <span class="eyebrow">Menu Seblak Teh Zara</span>
+        <h2>Menu Pilihan Kami</h2>
+        <p>Nikmati berbagai varian seblak pedas khas Teh Zara, dirancang untuk penggemar rasa berani dan berkelas.</p>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section class="section testimonial-section" id="testimonials">
+      <div class="container section-head">
+        <span class="eyebrow">Testimoni Pelanggan</span>
+        <h2>Apa Kata Mereka?</h2>
+        <p>Lihat testimoni approved dari pengunjung dan kirim pengalamanmu sendiri.</p>
+      </div>
+      <div class="container testimonial-content">
+        <div class="testimonial-list">
+          <div class="testimonial-grid" id="testimonialGrid"></div>
+        </div>
+        <aside class="testimonial-form-card">
+          <h3>Kirim Testimoni</h3>
+          <form id="testimonyForm" class="testimonial-form">
+            <div class="field-group">
+              <label for="testimonyName">Nama</label>
+              <input type="text" id="testimonyName" placeholder="Nama kamu" required />
+            </div>
+            <div class="field-group">
+              <label for="testimonyMessage">Pesan</label>
+              <textarea id="testimonyMessage" rows="5" placeholder="Tulis pengalamanmu..." required></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Kirim Testimoni</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section admin-section hidden" id="adminSection">
+      <div class="container admin-panel">
+        <div class="admin-card">
+          <h3>Tambah / Edit Menu</h3>
+          <p>Menu ini hanya muncul saat admin login. Upload gambar untuk menu baru atau edit menu yang sudah ada.</p>
+          <form id="addMenuForm" class="admin-form">
+            <input type="hidden" id="editMenuId" value="" />
+            <div class="field-group">
+              <label for="productName">Nama Menu</label>
+              <input type="text" id="productName" placeholder="Seblak Super Pedas" required />
+            </div>
+
+            <div class="field-group">
+              <label for="productDescription">Deskripsi Menu</label>
+              <textarea id="productDescription" rows="3" placeholder="Deskripsi singkat menu yang muncul di bawah nama menu" required></textarea>
+            </div>
+            <div class="field-group">
+              <label for="productPrice">Harga</label>
+              <input type="number" id="productPrice" placeholder="42000" required />
+            </div>
+            <div class="field-group">
+              <label for="productImageFile">Upload Gambar</label>
+              <input type="file" id="productImageFile" accept="image/*" />
+              <small class="field-note">Kosongkan jika tidak ingin mengganti gambar saat edit.</small>
+            </div>
+            <div class="admin-buttons">
+              <button class="btn btn-primary btn-block" id="submitMenuBtn" type="submit">Tambah Menu</button>
+              <button class="btn btn-secondary btn-block hidden" id="cancelEditBtn" type="button">Batal</button>
+            </div>
+          </form>
+        </div>
+        <div class="admin-card admin-testimony-card hidden" id="testimonialAdminCard">
+          <h3>Kelola Testimoni</h3>
+          <p>Approve testimoni visitor atau hapus testimoni yang tidak sesuai.</p>
+          <div id="testimonialAdminList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Kontak & Lokasi</span>
+          <h2>Kunjungi Seblak Teh Zara</h2>
+          <p>Alamat usaha: Datang dan rasakan menu seblak kami yang hangat, pedas, dan khas.</p>
+          <div class="contact-info">
+            <div><strong>Alamat</strong><span> Jl Tambora, Kademangan, Probolinggo City, East Java 67225, Indonesia</span></div>
+            <div><strong>Email</strong><span>info@seblaktehzara.id</span></div>
+          </div>
+        </div>
+        <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.5239922835167!2d113.18363168578851!3d-7.784737498143883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7b30074721485%3A0xd7c6c5fe732f5940!2sSeblak%20Teh%20Zara!5e0!3m2!1sen!2sus!4v1776400294487!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <div class="container footer-inner">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h2><div class="brand">
+      <img src="images/image.png" class="brand-logo">Seblak Teh Zara</h2>
+      <p>Profil produk seblak pedas dengan cita rasa khas yang bikin nagih 🌶️</p>
+    </div>
+
+    <!-- Navigasi -->
+    <div class="footer-col">
+      <h3>Menu</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#menu">Produk</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div class="footer-col">
+      <h3>Kontak</h3>
+      <p>📍 Kademangan, Probolinggo</p>
+      <p>📞 085361617800</p>
+      <p>📧 seblaktehzara@gmail.com</p>
+    </div>
+
+    <!-- Sosial Media -->
+<div class="footer-col">
+  <h3>Follow Us</h3>
+  <p>
+    <a href="https://instagram.com/usernamekamu" target="_blank">Instagram</a><br>
+    <a href="https://www.tiktok.com/@seblak.zara?_r=1&_t=ZS-95bZV5RIyE0" target="_blank">TikTok</a><br>
+    <a href="https://facebook.com/usernamekamu" target="_blank">Facebook</a><br>
+    <a href="https://r.grab.com/g/6-20260417_115539_f1710ef0825d4757bb085d23b1a2089a_MEXMPS-6-C7KWMFUKNU3YJX" target="_blank">GrabFood</a>
+  </p>
+</div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2026 Seblak Teh Zara | All Rights Reserved</p>
+  </div>
+</footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

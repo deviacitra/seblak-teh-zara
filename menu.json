@@ -1,0 +1,23 @@
+[
+  {
+    "id": "menu-1",
+    "name": "Seblak Super Pedas",
+    "price": 39000,
+    "image": "images/seblak-menu-1.svg",
+    "description": "Seblak khas Teh Zara dengan bumbu otentik dan sensasi pedas mantap."
+  },
+  {
+    "id": "menu-2",
+    "name": "Seblak Komplit Zara",
+    "price": 45000,
+    "image": "images/seblak-menu-2.svg",
+    "description": "Varian komplit untuk penggemar tekstur dan rasa seimbang."
+  },
+  {
+    "id": "menu-3",
+    "name": "Seblak Level 10",
+    "price": 48000,
+    "image": "images/seblak-menu-3.svg",
+    "description": "Level pedas ekstra untuk pencinta cabai sejati dan rasa mendalam."
+  }
+]
