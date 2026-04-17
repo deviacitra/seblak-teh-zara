@@ -1,3 +1,4 @@
+localStorage.removeItem("stz_menu");
 const menuStorageKey = "stz_menu";
 const testimonyStorageKey = "stz_testimonials";
 const authStorageKey = "stz_admin";
@@ -292,7 +293,7 @@ async function handleMenuSubmit(event) {
     name,
     description,
     price,
-    image: imageBase || "images/hero-seblak.svg"
+    image: imageBase || "images/hero-seblak.jpg"
   };
   const nextMenu = [newMenu, ...menuData];
   saveMenuData(nextMenu);
